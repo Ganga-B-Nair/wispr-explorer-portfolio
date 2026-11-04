@@ -4,6 +4,11 @@ An adventure-map portfolio: a playful loading screen, a hero welcome, and an
 interactive explorer's map where each land is one of the fields I explore. My
 cartoon self walks the trail and swaps gear to match each domain.
 
+## Prompt log
+
+I dictated every prompt used to build this site with Wispr Flow. They're all
+recorded, unedited, in [`PROMPT_LOG.md`](PROMPT_LOG.md).
+
 ## Run it locally
 
 No build step and nothing to install. From this folder:
