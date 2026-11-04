@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ganga B Nair · The Explorer's Portfolio</title>
+  <meta name="description" content="Ganga B Nair — CS & AI student, builder, writer, anchor and hacker. Explore the map of everything she's working on." />
+  <meta name="theme-color" content="#8fd3f4" />
+  <link rel="icon" type="image/png" href="assets/img/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@500;700;800&family=Patrick+Hand&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="is-loading">
+
+  <!-- ============ SVG SPRITE: explorer gear (one accessory per domain) ============ -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <!-- UI/UX: palette + brush -->
+      <symbol id="acc-palette" viewBox="0 0 64 64">
+        <path d="M31 7C16 7 5 17 5 30c0 11 8 19 17 19 4 0 5-3 5-5 0-3 2-5 5-5h7c10 0 18-6 18-15C57 14 45 7 31 7z" fill="#f7d9a8" stroke="#3b2416" stroke-width="3" stroke-linejoin="round"/>
+        <circle cx="17" cy="25" r="4.5" fill="#e5533d" stroke="#3b2416" stroke-width="2"/>
+        <circle cx="27" cy="16" r="4.5" fill="#ffd23f" stroke="#3b2416" stroke-width="2"/>
+        <circle cx="40" cy="17" r="4.5" fill="#4bb3e6" stroke="#3b2416" stroke-width="2"/>
+        <circle cx="47" cy="28" r="4.5" fill="#7b5cd6" stroke="#3b2416" stroke-width="2"/>
+        <path d="M38 60 L57 36" stroke="#3b2416" stroke-width="8" stroke-linecap="round"/>
+        <path d="M38 60 L57 36" stroke="#c98a4b" stroke-width="4" stroke-linecap="round"/>
+        <path d="M55 38 l5-9 3 2-4 9z" fill="#e94f8a" stroke="#3b2416" stroke-width="2" stroke-linejoin="round"/>
+      </symbol>
+      <!-- AI: bot -->
+      <symbol id="acc-bot" viewBox="0 0 64 64">
+        <line x1="32" y1="19" x2="32" y2="10" stroke="#3b2416" stroke-width="3"/>
+        <circle cx="32" cy="8" r="4" fill="#e5533d" stroke="#3b2416" stroke-width="2.5"/>
+        <rect x="8" y="28" width="6" height="12" rx="3" fill="#7b5cd6" stroke="#3b2416" stroke-width="2.5"/>
+        <rect x="50" y="28" width="6" height="12" rx="3" fill="#7b5cd6" stroke="#3b2416" stroke-width="2.5"/>
+        <rect x="13" y="19" width="38" height="30" rx="10" fill="#bfe6f5" stroke="#3b2416" stroke-width="3"/>
+        <rect x="18" y="25" width="28" height="15" rx="7" fill="#2b3a55"/>
+        <circle cx="26" cy="32" r="3.5" fill="#7ff3ff"/><circle cx="38" cy="32" r="3.5" fill="#7ff3ff"/>
+        <path d="M27 44 q5 3 10 0" stroke="#3b2416" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <rect x="22" y="49" width="20" height="9" rx="3" fill="#bfe6f5" stroke="#3b2416" stroke-width="3"/>
+      </symbol>
+      <!-- Cybersecurity: magnifying glass -->
+      <symbol id="acc-magnifier" viewBox="0 0 64 64">
+        <path d="M39 39 L57 57" stroke="#3b2416" stroke-width="11" stroke-linecap="round"/>
+        <path d="M39 39 L57 57" stroke="#a0623a" stroke-width="6" stroke-linecap="round"/>
+        <circle cx="27" cy="27" r="17" fill="#d6f1ff" stroke="#3b2416" stroke-width="3.5"/>
+        <circle cx="27" cy="27" r="12" fill="none" stroke="#ffd23f" stroke-width="3"/>
+        <path d="M18 22 a10 10 0 0 1 8-7" stroke="#fff" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+      </symbol>
+      <!-- Writing: notebook + pen -->
+      <symbol id="acc-notebook" viewBox="0 0 64 64">
+        <rect x="12" y="7" width="36" height="48" rx="5" fill="#fff4d6" stroke="#3b2416" stroke-width="3"/>
+        <rect x="12" y="7" width="9" height="48" rx="3" fill="#c0392b" stroke="#3b2416" stroke-width="3"/>
+        <line x1="26" y1="20" x2="42" y2="20" stroke="#c9a96a" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="26" y1="28" x2="42" y2="28" stroke="#c9a96a" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="26" y1="36" x2="38" y2="36" stroke="#c9a96a" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M58 22 L40 52 l-4 3 1-5 18-30z" fill="#4bb3e6" stroke="#3b2416" stroke-width="2.5" stroke-linejoin="round"/>
+      </symbol>
+      <!-- Robotics: gear + wrench -->
+      <symbol id="acc-gear" viewBox="0 0 64 64">
+        <circle cx="26" cy="30" r="17" fill="none" stroke="#3b2416" stroke-width="8" stroke-dasharray="5.2 3.7"/>
+        <circle cx="26" cy="30" r="14" fill="#c9ced8" stroke="#3b2416" stroke-width="3"/>
+        <circle cx="26" cy="30" r="5" fill="#fff4d6" stroke="#3b2416" stroke-width="2.5"/>
+        <path d="M40 58 L56 42" stroke="#3b2416" stroke-width="9" stroke-linecap="round"/>
+        <path d="M40 58 L56 42" stroke="#ffb02e" stroke-width="4.5" stroke-linecap="round"/>
+        <path d="M52 34 a8 8 0 1 0 10 10 l-5-1-3-3z" fill="#ffb02e" stroke="#3b2416" stroke-width="2.5" stroke-linejoin="round"/>
+      </symbol>
+      <!-- Music: headphones -->
+      <symbol id="acc-headphones" viewBox="0 0 64 64">
+        <path d="M12 40 V32 a20 20 0 0 1 40 0 v8" fill="none" stroke="#3b2416" stroke-width="7" stroke-linecap="round"/>
+        <path d="M12 40 V32 a20 20 0 0 1 40 0 v8" fill="none" stroke="#e94f8a" stroke-width="3" stroke-linecap="round"/>
+        <rect x="6" y="36" width="13" height="20" rx="6" fill="#7b5cd6" stroke="#3b2416" stroke-width="3"/>
+        <rect x="45" y="36" width="13" height="20" rx="6" fill="#7b5cd6" stroke="#3b2416" stroke-width="3"/>
+      </symbol>
+      <!-- Anchoring: microphone -->
+      <symbol id="acc-mic" viewBox="0 0 64 64">
+        <path d="M25 32 L29 58 h6 L39 32z" fill="#e94f8a" stroke="#3b2416" stroke-width="3" stroke-linejoin="round"/>
+        <rect x="23" y="30" width="18" height="6" rx="2" fill="#ffd23f" stroke="#3b2416" stroke-width="2.5"/>
+        <circle cx="32" cy="19" r="13" fill="#b9c2d3" stroke="#3b2416" stroke-width="3"/>
+        <path d="M22 15 h20 M20 21 h24 M24 27 h16 M27 8 v22 M37 8 v22" stroke="#7d879b" stroke-width="1.6"/>
+        <path d="M24 12 a10 10 0 0 1 6-4" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/>
+      </symbol>
+      <!-- Freelance web: laptop -->
+      <symbol id="acc-laptop" viewBox="0 0 64 64">
+        <rect x="11" y="12" width="42" height="30" rx="4" fill="#9fb0c7" stroke="#3b2416" stroke-width="3"/>
+        <rect x="15" y="16" width="34" height="22" rx="2" fill="#2b3a55"/>
+        <path d="M25 22 l-5 5 5 5 M39 22 l5 5-5 5 M34 20 l-4 14" stroke="#7CFFB2" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M4 45 h56 l-5 8 H9z" fill="#d7dce5" stroke="#3b2416" stroke-width="3" stroke-linejoin="round"/>
+      </symbol>
+      <!-- Hackathons: trophy -->
+      <symbol id="acc-trophy" viewBox="0 0 64 64">
+        <path d="M18 14 H8 c0 10 5 16 13 16 M46 14 h10 c0 10-5 16-13 16" fill="none" stroke="#3b2416" stroke-width="3.5"/>
+        <path d="M18 8 h28 v14 a14 14 0 0 1 -28 0z" fill="#ffd23f" stroke="#3b2416" stroke-width="3" stroke-linejoin="round"/>
+        <path d="M32 13 l2.4 4.8 5.3.8-3.8 3.7.9 5.3-4.8-2.5-4.8 2.5.9-5.3-3.8-3.7 5.3-.8z" fill="#fff6c4"/>
+        <rect x="28" y="36" width="8" height="9" fill="#e0a800" stroke="#3b2416" stroke-width="3"/>
+        <rect x="19" y="45" width="26" height="10" rx="3" fill="#a0623a" stroke="#3b2416" stroke-width="3"/>
+      </symbol>
+      <!-- Startups: rocket -->
+      <symbol id="acc-rocket" viewBox="0 0 64 64">
+        <path d="M26 46 q6 18 12 0z" fill="#ff8a3d" stroke="#3b2416" stroke-width="2.5" stroke-linejoin="round"/>
+        <path d="M23 36 l-9 11 h10z M41 36 l9 11 H40z" fill="#e5533d" stroke="#3b2416" stroke-width="2.5" stroke-linejoin="round"/>
+        <path d="M32 5 C44 14 46 30 41 46 H23 C18 30 20 14 32 5z" fill="#fff" stroke="#3b2416" stroke-width="3" stroke-linejoin="round"/>
+        <circle cx="32" cy="23" r="6" fill="#4bb3e6" stroke="#3b2416" stroke-width="3"/>
+      </symbol>
+      <!-- Base camp: compass -->
+      <symbol id="acc-compass" viewBox="0 0 64 64">
+        <circle cx="32" cy="32" r="25" fill="#ffd23f" stroke="#3b2416" stroke-width="3"/>
+        <circle cx="32" cy="32" r="19" fill="#fff8e6" stroke="#3b2416" stroke-width="2"/>
+        <path d="M32 14 l6 18 -6 18 -6-18z" fill="#e5533d" stroke="#3b2416" stroke-width="2" stroke-linejoin="round"/>
+        <path d="M32 32 l6 0 -6 18 -6-18z" fill="#4a6fa5"/>
+        <circle cx="32" cy="32" r="3" fill="#3b2416"/>
+      </symbol>
+      <!-- Treasure chest -->
+      <symbol id="acc-chest" viewBox="0 0 64 64">
+        <path d="M8 30 q24-26 48 0z" fill="#8a5a2b" stroke="#3b2416" stroke-width="3" stroke-linejoin="round"/>
+        <rect x="8" y="30" width="48" height="26" rx="3" fill="#a0623a" stroke="#3b2416" stroke-width="3"/>
+        <path d="M8 38 h48" stroke="#3b2416" stroke-width="3"/>
+        <rect x="27" y="33" width="10" height="12" rx="2" fill="#ffd23f" stroke="#3b2416" stroke-width="2.5"/>
+        <path d="M14 22 l2-6 2 6 6 2-6 2-2 6-2-6-6-2z" fill="#fff6c4"/>
+      </symbol>
+      <!-- frangipani (hair flower motif) -->
+      <symbol id="frangipani" viewBox="-20 -20 40 40">
+        <g stroke="#c9a24a" stroke-width="1.2">
+          <ellipse cx="0" cy="-9" rx="6" ry="10" fill="#fffaf0" transform="rotate(0)"/>
+          <ellipse cx="0" cy="-9" rx="6" ry="10" fill="#fffaf0" transform="rotate(72)"/>
+          <ellipse cx="0" cy="-9" rx="6" ry="10" fill="#fffaf0" transform="rotate(144)"/>
+          <ellipse cx="0" cy="-9" rx="6" ry="10" fill="#fffaf0" transform="rotate(216)"/>
+          <ellipse cx="0" cy="-9" rx="6" ry="10" fill="#fffaf0" transform="rotate(288)"/>
+        </g>
+        <circle r="5.5" fill="#ffc93c"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <!-- ============ LOADING SCREEN ============ -->
+  <div id="loader" role="dialog" aria-modal="true" aria-labelledby="loader-title">
+    <div class="loader-card">
+      <div class="loader-stage">
+        <svg class="loader-compass" viewBox="0 0 200 200" aria-hidden="true">
+          <circle cx="100" cy="100" r="92" fill="#fff8e6" stroke="#3b2416" stroke-width="5"/>
+          <circle cx="100" cy="100" r="78" fill="none" stroke="#e8cf95" stroke-width="3" stroke-dasharray="4 8"/>
+          <g font-family="Fredoka, sans-serif" font-weight="700" font-size="20" fill="#3b2416" text-anchor="middle">
+            <text x="100" y="36">N</text><text x="100" y="180">S</text><text x="172" y="107">E</text><text x="28" y="107">W</text>
+          </g>
+          <g class="needle">
+            <path d="M100 40 L112 100 L100 160 L88 100Z" fill="#e5533d" stroke="#3b2416" stroke-width="4" stroke-linejoin="round"/>
+            <path d="M100 100 L112 100 L100 160 L88 100Z" fill="#4a6fa5"/>
+            <circle cx="100" cy="100" r="8" fill="#3b2416"/>
+          </g>
+        </svg>
+        <img class="loader-hero" src="assets/img/explorer-jump.webp" alt="" width="321" height="422" />
+      </div>
+
+      <h2 id="loader-title" class="loader-title">Packing for the expedition…</h2>
+      <p class="loader-status" aria-live="polite">Unrolling the map…</p>
+
+      <ul class="loader-gear" aria-hidden="true"></ul>
+
+      <svg class="loader-trail" viewBox="0 0 400 48" aria-hidden="true">
+        <defs><clipPath id="trailClip"><rect id="trailClipRect" x="0" y="0" width="0" height="48"/></clipPath></defs>
+        <path id="loaderTrailBase" d="M12 30 C 70 6, 130 46, 200 26 S 320 8, 372 26" fill="none" stroke="#c9a96a" stroke-width="5" stroke-linecap="round" stroke-dasharray="2 12"/>
+        <path d="M12 30 C 70 6, 130 46, 200 26 S 320 8, 372 26" fill="none" stroke="#e5533d" stroke-width="6" stroke-linecap="round" stroke-dasharray="2 12" clip-path="url(#trailClip)"/>
+        <g stroke="#e5533d" stroke-width="5" stroke-linecap="round"><path d="M376 16 l14 14 M390 16 l-14 14"/></g>
+        <circle id="loaderDot" cx="12" cy="30" r="7" fill="#ffd23f" stroke="#3b2416" stroke-width="3"/>
+      </svg>
+      <p class="loader-pct"><span id="loaderPct">0</span>% packed</p>
+
+      <div class="loader-actions" hidden>
+        <button id="startBtn" class="btn btn-primary btn-big" type="button">Start the Adventure! <span aria-hidden="true">→</span></button>
+        <button id="quietBtn" class="btn-link" type="button">Enter without music</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ TOP BAR ============ -->
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="Back to top">
+      <img src="assets/img/face-happy.webp" alt="" width="40" height="40" />
+      <span>Ganga's Expedition</span>
+    </a>
+    <nav class="topnav" aria-label="Sections">
+      <a href="#map"><svg aria-hidden="true"><use href="#acc-compass"/></svg><span>The Map</span></a>
+      <a href="#wispr"><svg aria-hidden="true"><use href="#acc-mic"/></svg><span>My Wispr story</span></a>
+    </nav>
+    <button id="musicBtn" class="music-btn" type="button" aria-pressed="false" aria-label="Turn music on">
+      <span class="music-icon" aria-hidden="true">
+        <i></i><i></i><i></i><i></i>
+      </span>
+      <span class="music-label">Music off</span>
+    </button>
+  </header>
+
+  <main id="top">
+   <div id="home">
+    <!-- ============ HERO ============ -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="sky" aria-hidden="true">
+        <div class="sun"><div class="sun-rays"></div></div>
+        <div class="cloud c1"></div><div class="cloud c2"></div><div class="cloud c3"></div><div class="cloud c4"></div>
+        <svg class="birds" viewBox="0 0 120 40"><path d="M5 20 q8-10 16 0 q8-10 16 0" /><path d="M60 10 q6-8 12 0 q6-8 12 0"/><path d="M92 28 q5-6 10 0 q5-6 10 0"/></svg>
+      </div>
+
+      <div class="hero-inner">
+        <div class="hero-char">
+          <div class="speech" aria-hidden="true">Hi! I'm Ganga <span class="wave-emoji">👋</span></div>
+          <img src="assets/img/explorer-wave.webp" alt="Cartoon illustration of Ganga waving, with curly hair, glasses, a frangipani flower, jhumka earrings and a block-print kurta" width="471" height="982" />
+        </div>
+
+        <div class="hero-copy">
+          <p class="hero-kicker"><svg aria-hidden="true"><use href="#acc-compass"/></svg> Expedition Log · 2026</p>
+          <h1 id="hero-title" class="hero-title">
+            <span class="line">Welcome to</span>
+            <span class="line name">Ganga B Nair's</span>
+            <span class="line">Portfolio!</span>
+          </h1>
+          <p class="hero-sub">A curious explorer charting her way through <b>AI</b>, <b>design</b>, <b>security</b>, <b>stories</b> and <b>stages</b> — one adventure at a time.</p>
+          <ul class="badges">
+            <li><svg aria-hidden="true"><use href="#acc-trophy"/></svg>HAC'KP 2026 National Winner</li>
+            <li><svg aria-hidden="true"><use href="#acc-rocket"/></svg>CEO, Catalyst IEDC</li>
+            <li><svg aria-hidden="true"><use href="#acc-bot"/></svg>CS &amp; AI @ MBCET</li>
+          </ul>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="#map">Open the map <span aria-hidden="true">↓</span></a>
+            <a class="btn btn-ghost" href="#wispr">How I found Wispr Flow</a>
+            <a class="btn btn-ghost" href="https://github.com/Ganga-B-Nair" target="_blank" rel="noopener">GitHub</a>
+            <a class="btn btn-ghost" href="https://www.linkedin.com/in/ganga-b-nair-47941a235" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="hills" aria-hidden="true">
+        <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
+          <path d="M0 170 C 220 70 420 90 640 150 C 860 210 1080 60 1440 120 V320 H0Z" fill="#b5e08a"/>
+          <path d="M0 220 C 260 140 520 180 760 220 C 1000 260 1200 170 1440 200 V320 H0Z" fill="#8fd162"/>
+          <path d="M0 270 C 300 220 560 250 820 268 C 1080 286 1260 240 1440 252 V320 H0Z" fill="#6fbf4a"/>
+        </svg>
+        <svg class="flower f1"><use href="#frangipani"/></svg>
+        <svg class="flower f2"><use href="#frangipani"/></svg>
+        <svg class="flower f3"><use href="#frangipani"/></svg>
+        <svg class="flower f4"><use href="#frangipani"/></svg>
+        <svg class="flower f5"><use href="#frangipani"/></svg>
+      </div>
+
+      <a class="scroll-cue" href="#map">
+        <span>Scroll to open the map</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 9 l7 7 7-7" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </section>
+
+    <!-- ============ THE EXPLORER'S MAP ============ -->
+    <section id="map" class="map-section" aria-labelledby="map-title">
+      <div class="map-head">
+        <div class="ribbon"><h2 id="map-title">The Explorer's Map</h2></div>
+        <p class="map-sub">Ten lands, one curious explorer. Tap a landmark and I'll walk you there, swap my gear, and open that land's page!</p>
+        <div class="map-controls">
+          <button id="tourBtn" class="btn btn-primary" type="button"><span aria-hidden="true">▶</span> Take the guided tour</button>
+          <button id="resetBtn" class="btn btn-ghost on-grass" type="button">Back to base camp</button>
+        </div>
+      </div>
+
+      <div class="map-layout">
+        <div class="map-frame">
+          <p class="swipe-hint" aria-hidden="true">← swipe to explore the map →</p>
+          <div class="map-scroll">
+          <svg id="worldMap" class="world-map" viewBox="0 0 1200 780" role="group" aria-label="Illustrated adventure map of Ganga's interests">
+            <defs>
+              <radialGradient id="parch" cx="50%" cy="50%" r="75%">
+                <stop offset="0%" stop-color="#fbefcf"/>
+                <stop offset="70%" stop-color="#f1dcaa"/>
+                <stop offset="100%" stop-color="#d9b877"/>
+              </radialGradient>
+              <filter id="rough" x="-5%" y="-5%" width="110%" height="110%">
+                <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="7" result="n"/>
+                <feDisplacementMap in="SourceGraphic" in2="n" scale="10" xChannelSelector="R" yChannelSelector="G"/>
+              </filter>
+              <pattern id="waves" width="60" height="30" patternUnits="userSpaceOnUse">
+                <path d="M6 18 q8-8 16 0 q8-8 16 0" fill="none" stroke="#5fa8b8" stroke-width="2" stroke-linecap="round" opacity=".55"/>
+              </pattern>
+              <clipPath id="avatarClip"><circle cx="0" cy="-50" r="22"/></clipPath>
+              <mask id="traveledMask" maskUnits="userSpaceOnUse" x="0" y="0" width="1200" height="780">
+                <path id="trailMaskPath" fill="none" stroke="#fff" stroke-width="18" stroke-linecap="round"/>
+              </mask>
+            </defs>
+
+            <!-- paper -->
+            <rect x="14" y="14" width="1172" height="752" rx="18" fill="url(#parch)" stroke="#8a5a2b" stroke-width="6" filter="url(#rough)"/>
+
+            <!-- sea -->
+            <g class="sea">
+              <path d="M20 20 H1180 V392 C1140 372 1120 312 1130 262 C1140 202 1090 150 1010 140 C930 130 880 100 800 108 C720 116 690 84 640 98 C560 118 500 76 420 86 C330 96 280 66 200 76 C120 86 60 66 20 80Z" fill="#a9dadb"/>
+              <path d="M20 20 H1180 V392 C1140 372 1120 312 1130 262 C1140 202 1090 150 1010 140 C930 130 880 100 800 108 C720 116 690 84 640 98 C560 118 500 76 420 86 C330 96 280 66 200 76 C120 86 60 66 20 80Z" fill="url(#waves)"/>
+              <path d="M1180 392 C1140 372 1120 312 1130 262 C1140 202 1090 150 1010 140 C930 130 880 100 800 108 C720 116 690 84 640 98 C560 118 500 76 420 86 C330 96 280 66 200 76 C120 86 60 66 20 80" fill="none" stroke="#8a5a2b" stroke-width="3" stroke-dasharray="1 0"/>
+              <text x="1000" y="62" class="map-script" text-anchor="middle">Sea of Possibilities</text>
+              <g class="boat" transform="translate(860 52)">
+                <path d="M-22 6 h44 l-9 12 h-26z" fill="#fff" stroke="#3b2416" stroke-width="2.5" stroke-linejoin="round"/>
+                <path d="M0 6 V-22 l18 22z" fill="#ffd23f" stroke="#3b2416" stroke-width="2.5" stroke-linejoin="round"/>
+              </g>
+            </g>
+
+            <!-- grass patches -->
+            <g fill="#cfe3a0" opacity=".65">
+              <ellipse cx="200" cy="560" rx="150" ry="60"/><ellipse cx="640" cy="560" rx="200" ry="70"/>
+              <ellipse cx="980" cy="560" rx="160" ry="60"/><ellipse cx="600" cy="360" rx="260" ry="60"/>
+              <ellipse cx="240" cy="230" rx="160" ry="55"/>
+            </g>
+
+            <!-- Ink River -->
+            <path d="M360 92 C330 160 380 220 340 290 C300 360 350 420 440 432 C490 438 515 444 530 448" fill="none" stroke="#3b2416" stroke-width="22" stroke-linecap="round" opacity=".9"/>
+            <path d="M360 92 C330 160 380 220 340 290 C300 360 350 420 440 432 C490 438 515 444 530 448" fill="none" stroke="#7fc6e4" stroke-width="16" stroke-linecap="round"/>
+            <path class="river-flow" d="M360 92 C330 160 380 220 340 290 C300 360 350 420 440 432 C490 438 515 444 530 448" fill="none" stroke="#d7f1fb" stroke-width="3" stroke-linecap="round" stroke-dasharray="10 22"/>
+
+            <!-- decorative trees -->
+            <g class="trees">
+              <g transform="translate(150 520)"><rect x="-4" y="-22" width="8" height="22" fill="#8a5a2b" stroke="#3b2416" stroke-width="2"/><circle cy="-34" r="18" fill="#5bb35d" stroke="#3b2416" stroke-width="2.5"/></g>
+              <g transform="translate(470 300)"><rect x="-4" y="-22" width="8" height="22" fill="#8a5a2b" stroke="#3b2416" stroke-width="2"/><circle cy="-34" r="16" fill="#68bf5f" stroke="#3b2416" stroke-width="2.5"/></g>
+              <g transform="translate(720 300)"><rect x="-4" y="-22" width="8" height="22" fill="#8a5a2b" stroke="#3b2416" stroke-width="2"/><circle cy="-34" r="18" fill="#5bb35d" stroke="#3b2416" stroke-width="2.5"/></g>
+              <g transform="translate(960 330)"><rect x="-4" y="-22" width="8" height="22" fill="#8a5a2b" stroke="#3b2416" stroke-width="2"/><circle cy="-34" r="15" fill="#68bf5f" stroke="#3b2416" stroke-width="2.5"/></g>
+              <g transform="translate(1110 640)"><rect x="-4" y="-22" width="8" height="22" fill="#8a5a2b" stroke="#3b2416" stroke-width="2"/><circle cy="-34" r="17" fill="#5bb35d" stroke="#3b2416" stroke-width="2.5"/></g>
+              <g transform="translate(40 300)"><rect x="-4" y="-22" width="8" height="22" fill="#8a5a2b" stroke="#3b2416" stroke-width="2"/><circle cy="-34" r="16" fill="#68bf5f" stroke="#3b2416" stroke-width="2.5"/></g>
+            </g>
+
+            <!-- compass rose -->
+            <g class="rose" transform="translate(70 560) scale(.8)">
+              <circle r="44" fill="#fff8e6" stroke="#8a5a2b" stroke-width="3"/>
+              <path d="M0 -40 L9 0 L0 40 L-9 0Z" fill="#e5533d" stroke="#3b2416" stroke-width="2"/>
+              <path d="M-40 0 L0 -9 L40 0 L0 9Z" fill="#4a6fa5" stroke="#3b2416" stroke-width="2"/>
+              <circle r="5" fill="#3b2416"/>
+              <text y="-50" text-anchor="middle" class="map-script small">N</text>
+            </g>
+
+            <!-- the trail -->
+            <path id="trail" class="trail" fill="none" stroke="#8a5a2b" stroke-width="5" stroke-linecap="round" stroke-dasharray="2 13"/>
+            <path id="trailDone" class="trail-done" fill="none" stroke="#e5533d" stroke-width="7" stroke-linecap="round" stroke-dasharray="2 13" mask="url(#traveledMask)"/>
+
+            <!-- ============ LANDMARKS (positioned by JS) ============ -->
+            <g id="landmarks">
+              <!-- Base camp -->
+              <g class="lm" data-stop="start">
+                <ellipse rx="34" ry="7" fill="#3b2416" opacity=".14"/>
+                <path d="M-36 0 L-14 -40 L8 0Z" fill="#ffb02e" stroke="#3b2416" stroke-width="3" stroke-linejoin="round"/>
+                <path d="M-14 0 L-14 -40 L-4 0Z" fill="#e58f12"/>
+                <line x1="22" y1="0" x2="22" y2="-72" stroke="#3b2416" stroke-width="4" stroke-linecap="round"/>
+                <path class="flag" d="M22 -72 L60 -62 L22 -50Z" fill="#e5533d" stroke="#3b2416" stroke-width="3" stroke-linejoin="round"/>
+              </g>
+
+              <!-- Webweaver Village -->
+              <g class="lm" data-stop="web">
+                <ellipse rx="72" ry="10" fill="#3b2416" opacity=".14"/>
+                <rect x="-64" y="-48" width="46" height="48" fill="#ffd9a0" stroke="#3b2416" stroke-width="3"/>
+                <polygon points="-70,-48 -41,-78 -12,-48" fill="#e5533d" stroke="#3b2416" stroke-width="3" stroke-linejoin="round"/>
+                <rect x="-47" y="-22" width="12" height="22" fill="#8a5a2b" stroke="#3b2416" stroke-width="2"/>
+                <rect x="-6" y="-60" width="62" height="60" fill="#fff1c9" stroke="#3b2416" stroke-width="3"/>
+                <polygon points="-14,-60 25,-100 64,-60" fill="#7b5cd6" stroke="#3b2416" stroke-width="3" stroke-linejoin="round"/>
+                <rect x="6" y="-48" width="38" height="24" rx="3" fill="#2b3a55" stroke="#3b2416" stroke-width="2.5"/>
+                <text x="25" y="-31" text-anchor="middle" font-family="monospace" font-weight="700" font-size="14" fill="#7CFFB2">&lt;/&gt;</text>
+                <path d="M-41 -78 Q -8 -66 25 -100" fill="none" stroke="#3b2416" stroke-width="1.5"/>
+                <polygon points="-30,-73 -24,-73 -27,-64" fill="#ffd23f"/><polygon points="-14,-74 -8,-76 -9,-67" fill="#4bb3e6"/><polygon points="2,-80 8,-83 8,-74" fill="#e94f8a"/>
+              </g>
+
+              <!-- Pixel Peaks -->
+              <g class="lm" data-stop="uiux">
+                <ellipse rx="80" ry="10" fill="#3b2416" opacity=".14"/>
+                <polygon points="-24,0 24,-112 74,0" fill="#7b5cd6" stroke="#3b2416" stroke-width="3" stroke-linejoin="round"/>
+                <polygon points="24,-112 8,-74 16,-80 24,-72 32,-80 41,-74" fill="#fff" stroke="#3b2416" stroke-width="2.5" stroke-linejoin="round"/>
+                <polygon points="-78,0 -32,-80 14,0" fill="#e94f8a" stroke="#3b2416" stroke-width="3" stroke-linejoin="round"/>
+                <polygon points="-32,-80 -44,-58 -38,-62 -32,-56 -26,-62 -20,-58" fill="#fff" stroke="#3b2416" stroke-width="2.5" stroke-linejoin="round"/>
+                <polygon points="34,0 60,-50 86,0" fill="#4bb3e6" stroke="#3b2416" stroke-width="3" stroke-linejoin="round"/>
+                <g class="pixels" fill="#ffd23f" stroke="#3b2416" stroke-width="1.5">
+                  <rect x="-66" y="-104" width="9" height="9"/><rect x="50" y="-96" width="7" height="7"/><rect x="64" y="-112" width="9" height="9"/><rect x="-54" y="-118" width="6" height="6"/>
+                </g>
+              </g>
+
+              <!-- Neural Jungle -->
+              <g class="lm" data-stop="ai">
+                <ellipse rx="80" ry="10" fill="#3b2416" opacity=".14"/>
+                <path d="M-44 0 Q-50 -42 -38 -82" fill="none" stroke="#3b2416" stroke-width="11" stroke-linecap="round"/>
+                <path d="M-44 0 Q-50 -42 -38 -82" fill="none" stroke="#a0623a" stroke-width="6" stroke-linecap="round"/>
+                <g fill="#3fa34d" stroke="#3b2416" stroke-width="2.5">
+                  <ellipse cx="-58" cy="-86" rx="26" ry="9" transform="rotate(25 -58 -86)"/>
+                  <ellipse cx="-18" cy="-88" rx="26" ry="9" transform="rotate(-25 -18 -88)"/>
+                  <ellipse cx="-44" cy="-98" rx="22" ry="8" transform="rotate(-60 -44 -98)"/>
+                  <ellipse cx="-30" cy="-100" rx="22" ry="8" transform="rotate(55 -30 -100)"/>
+                </g>
+                <g fill="#57b85a" stroke="#3b2416" stroke-width="2.5">
+                  <circle cx="6" cy="-20" r="24"/><circle cx="62" cy="-16" r="20"/><circle cx="36" cy="-30" r="28"/>
+                </g>
+                <g class="circuit" stroke="#1fb8d6" stroke-width="2.5" fill="none" stroke-linecap="round">
+                  <path d="M-38 -82 L4 -50 L34 -64 L62 -40 M4 -50 L18 -22 L48 -18"/>
+                </g>
+                <g class="nodes" fill="#7ff3ff" stroke="#3b2416" stroke-width="2">
+                  <circle cx="4" cy="-50" r="5"/><circle cx="34" cy="-64" r="5"/><circle cx="62" cy="-40" r="5"/><circle cx="18" cy="-22" r="4"/><circle cx="48" cy="-18" r="4"/>
+                </g>
+              </g>
+
+              <!-- Cipher Caves -->
+              <g class="lm" data-stop="cyber">
+                <ellipse rx="80" ry="10" fill="#3b2416" opacity=".14"/>
+                <path d="M-76 0 C-72 -60 -32 -96 8 -94 C50 -92 80 -56 76 0Z" fill="#9b8b7a" stroke="#3b2416" stroke-width="3" stroke-linejoin="round"/>
+                <path d="M-50 -30 q12 -10 22 -4 M40 -56 q10 4 14 16" stroke="#7a6b5c" stroke-width="3" fill="none" stroke-linecap="round"/>
+                <path d="M-30 0 C-30 -44 30 -44 30 0Z" fill="#24160f" stroke="#3b2416" stroke-width="3"/>
+                <g class="eyes" fill="#ffd23f"><circle cx="-8" cy="-16" r="3.5"/><circle cx="8" cy="-16" r="3.5"/></g>
+                <text x="-4" y="-64" text-anchor="middle" font-family="monospace" font-weight="700" font-size="13" fill="#fff8e6">0110 1001</text>
+                <g transform="translate(52 -98)">
+                  <path d="M-7 -2 v-7 a7 7 0 0 1 14 0 v7" fill="none" stroke="#3b2416" stroke-width="3.5"/>
+                  <rect x="-11" y="-3" width="22" height="18" rx="4" fill="#ffd23f" stroke="#3b2416" stroke-width="3"/>
+                  <circle cx="0" cy="6" r="2.5" fill="#3b2416"/>
+                </g>
+              </g>
+
+              <!-- Hackathon Volcano -->
+              <g class="lm" data-stop="hack">
+                <ellipse rx="84" ry="10" fill="#3b2416" opacity=".14"/>
+                <g class="erupt" font-family="monospace" font-weight="700" fill="#e5533d">
+                  <text x="-10" y="-112" font-size="16">{ }</text>
+                  <text x="14" y="-120" font-size="14">&lt;/&gt;</text>
+                  <text x="-26" y="-124" font-size="14">#</text>
+                </g>
+                <g class="smoke" fill="#efe7da" stroke="#3b2416" stroke-width="2">
+                  <circle cx="-6" cy="-118" r="10"/><circle cx="10" cy="-128" r="13"/><circle cx="-14" cy="-136" r="8"/>
+                </g>
+                <path d="M-82 0 L-26 -96 H26 L82 0Z" fill="#a0623a" stroke="#3b2416" stroke-width="3" stroke-linejoin="round"/>
+                <path d="M-50 -40 l14 -20 M44 -30 l-10 -18" stroke="#7d4a28" stroke-width="3" stroke-linecap="round"/>
+                <ellipse cy="-96" rx="26" ry="7" fill="#ff6b2c" stroke="#3b2416" stroke-width="3"/>
+                <path d="M-14 -94 Q-16 -70 -8 -58 Q0 -74 6 -94Z" fill="#ff8a3d" stroke="#3b2416" stroke-width="2" stroke-linejoin="round"/>
+              </g>
+
+              <!-- Gearworks Ridge -->
+              <g class="lm" data-stop="robotics">
+                <ellipse rx="80" ry="10" fill="#3b2416" opacity=".14"/>
+                <path d="M-82 0 Q0 -74 82 0Z" fill="#8fc46a" stroke="#3b2416" stroke-width="3"/>
+                <g class="gear-spin" style="transform-origin:-18px -58px">
+                  <circle cx="-18" cy="-58" r="26" fill="none" stroke="#3b2416" stroke-width="9" stroke-dasharray="7.5 5.1"/>
+                  <circle cx="-18" cy="-58" r="22" fill="#c9ced8" stroke="#3b2416" stroke-width="3"/>
+                  <circle cx="-18" cy="-58" r="7" fill="#fbefcf" stroke="#3b2416" stroke-width="2.5"/>
+                </g>
+                <g class="gear-spin rev" style="transform-origin:20px -88px">
+                  <circle cx="20" cy="-88" r="16" fill="none" stroke="#3b2416" stroke-width="7" stroke-dasharray="5.3 3.1"/>
+                  <circle cx="20" cy="-88" r="13" fill="#ffd23f" stroke="#3b2416" stroke-width="3"/>
+                  <circle cx="20" cy="-88" r="4.5" fill="#fbefcf" stroke="#3b2416" stroke-width="2"/>
+                </g>
+                <rect x="30" y="-36" width="28" height="12" rx="3" fill="#7b5cd6" stroke="#3b2416" stroke-width="3"/>
+                <path d="M44 -36 L60 -62 L42 -80" fill="none" stroke="#3b2416" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M44 -36 L60 -62 L42 -80" fill="none" stroke="#ffb02e" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M42 -80 l-10 -2 M42 -80 l-4 -10" stroke="#3b2416" stroke-width="4" stroke-linecap="round"/>
+              </g>
+
+              <!-- Melody Lagoon -->
+              <g class="lm" data-stop="music">
+                <ellipse cy="-8" rx="80" ry="26" fill="#6cc6e0" stroke="#3b2416" stroke-width="3"/>
+                <ellipse cy="-12" rx="56" ry="14" fill="#9fdcef"/>
+                <g fill="#57b85a" stroke="#3b2416" stroke-width="2">
+                  <path d="M-36 -10 a14 7 0 1 0 12 -5 l-12 5z"/><path d="M30 -2 a12 6 0 1 0 10 -4 l-10 4z"/>
+                </g>
+                <use href="#frangipani" x="-44" y="-22" width="18" height="18"/>
+                <g class="notes" font-family="Fredoka, sans-serif" font-weight="700" fill="#7b5cd6" stroke="#3b2416" stroke-width="1">
+                  <text x="-16" y="-46" font-size="30">♪</text>
+                  <text x="14" y="-64" font-size="34">♫</text>
+                  <text x="44" y="-42" font-size="26">♪</text>
+                </g>
+              </g>
+
+              <!-- Ink River -->
+              <g class="lm" data-stop="writing">
+                <ellipse rx="60" ry="9" fill="#3b2416" opacity=".14"/>
+                <rect x="-42" y="-36" width="38" height="36" rx="7" fill="#2b3a55" stroke="#3b2416" stroke-width="3"/>
+                <rect x="-32" y="-46" width="18" height="12" rx="2" fill="#2b3a55" stroke="#3b2416" stroke-width="3"/>
+                <rect x="-37" y="-26" width="28" height="13" rx="2" fill="#fff4d6"/>
+                <text x="-23" y="-16" text-anchor="middle" font-family="Patrick Hand, cursive" font-size="11" fill="#3b2416">INK</text>
+                <path d="M-18 -44 C -2 -82 18 -104 36 -118 C 32 -92 18 -62 -14 -42Z" fill="#fff" stroke="#3b2416" stroke-width="3" stroke-linejoin="round"/>
+                <path d="M-18 -44 L30 -110" stroke="#c9a96a" stroke-width="2"/>
+                <g transform="translate(36 -2)">
+                  <path d="M-24 -10 h48 l-10 12 h-28z" fill="#fff" stroke="#3b2416" stroke-width="2.5" stroke-linejoin="round"/>
+                  <path d="M-8 -10 l8 -24 l8 24z" fill="#fff8e6" stroke="#3b2416" stroke-width="2.5" stroke-linejoin="round"/>
+                </g>
+              </g>
+
+              <!-- Spotlight Stage -->
+              <g class="lm" data-stop="anchor">
+                <polygon class="beam-l" points="-96,-134 -16,-20 18,-20" fill="#fff07a" opacity=".55"/>
+                <polygon class="beam-r" points="96,-134 16,-20 -18,-20" fill="#fff07a" opacity=".55"/>
+                <path d="M-66 -18 V-90 Q0 -130 66 -90 V-18Z" fill="#3b2a5c" stroke="#3b2416" stroke-width="3"/>
+                <path d="M-66 -92 Q-38 -60 -48 -18 H-66Z" fill="#e5533d" stroke="#3b2416" stroke-width="2.5"/>
+                <path d="M66 -92 Q38 -60 48 -18 H66Z" fill="#e5533d" stroke="#3b2416" stroke-width="2.5"/>
+                <rect x="-78" y="-20" width="156" height="20" rx="3" fill="#a0623a" stroke="#3b2416" stroke-width="3"/>
+                <line x1="0" y1="-20" x2="0" y2="-60" stroke="#3b2416" stroke-width="3"/>
+                <circle cx="0" cy="-66" r="7" fill="#b9c2d3" stroke="#3b2416" stroke-width="2.5"/>
+                <path d="M-14 -108 l3 -7 3 7 7 3 -7 3 -3 7 -3 -7 -7 -3z" fill="#ffd23f"/>
+              </g>
+
+              <!-- Launchpad Lighthouse -->
+              <g class="lm" data-stop="startup">
+                <g class="lighthouse-beam" style="transform-origin:0px -120px">
+                  <polygon points="0,-120 -150,-160 -150,-82" fill="#fff6a8" opacity=".55"/>
+                </g>
+                <ellipse rx="56" ry="11" fill="#9b8b7a" stroke="#3b2416" stroke-width="3"/>
+                <polygon points="-22,0 -14,-110 14,-110 22,0" fill="#fff" stroke="#3b2416" stroke-width="3" stroke-linejoin="round"/>
+                <polygon points="-20.6,-20 -19.2,-40 19.2,-40 20.6,-20" fill="#e5533d"/>
+                <polygon points="-17.6,-60 -16.2,-80 16.2,-80 17.6,-60" fill="#e5533d"/>
+                <rect x="-17" y="-130" width="34" height="20" rx="3" fill="#ffd23f" stroke="#3b2416" stroke-width="3"/>
+                <polygon points="-22,-130 0,-150 22,-130" fill="#e5533d" stroke="#3b2416" stroke-width="3" stroke-linejoin="round"/>
+                <g class="mini-rocket"><use href="#acc-rocket" x="30" y="-78" width="42" height="42"/></g>
+              </g>
+
+              <!-- Treasure -->
+              <g class="lm" data-stop="treasure">
+                <ellipse rx="54" ry="9" fill="#3b2416" opacity=".14"/>
+                <g stroke="#3b2416" stroke-width="13" stroke-linecap="round"><path d="M-30 -32 L30 8 M30 -32 L-30 8"/></g>
+                <g stroke="#e5533d" stroke-width="8" stroke-linecap="round"><path d="M-30 -32 L30 8 M30 -32 L-30 8"/></g>
+                <g class="chest-bob"><use href="#acc-chest" x="-30" y="-96" width="60" height="60"/></g>
+              </g>
+            </g>
+
+            <!-- the explorer token -->
+            <g id="avatar" aria-hidden="true">
+              <g class="avatar-bob">
+                <ellipse cx="0" cy="0" rx="12" ry="4" fill="#3b2416" opacity=".25"/>
+                <path d="M0 0 C -6 -14 -28 -26 -28 -50 a28 28 0 1 1 56 0 C 28 -26 6 -14 0 0Z" fill="#e94f8a" stroke="#3b2416" stroke-width="3.5" stroke-linejoin="round"/>
+                <circle cx="0" cy="-50" r="22" fill="#fff8e6"/>
+                <image href="assets/img/face-happy.webp" x="-24" y="-74" width="48" height="50" clip-path="url(#avatarClip)" preserveAspectRatio="xMidYMin slice"/>
+                <circle cx="0" cy="-50" r="22" fill="none" stroke="#3b2416" stroke-width="2.5"/>
+                <g transform="translate(30 -82)">
+                  <g id="avatarAcc" class="avatar-acc">
+                    <circle r="19" fill="#fff" stroke="#3b2416" stroke-width="3"/>
+                    <use id="avatarAccUse" href="#acc-compass" x="-14" y="-14" width="28" height="28"/>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </svg>
+          </div>
+        </div>
+
+        <!-- Field journal: details of the current stop -->
+        <aside class="journal" aria-live="polite">
+          <div class="journal-top">
+            <div class="journal-portrait">
+              <img id="jFace" src="assets/img/face-happy.webp" alt="" width="120" height="120" />
+              <div class="journal-acc"><svg aria-hidden="true"><use id="jAccUse" href="#acc-compass"/></svg></div>
+            </div>
+            <div>
+              <p id="jKicker" class="journal-kicker">Base camp</p>
+              <p id="jGear" class="journal-gear">Gear: trusty compass</p>
+            </div>
+          </div>
+          <h3 id="jTitle" class="journal-title">Base Camp</h3>
+          <p id="jDomain" class="journal-domain">Thiruvananthapuram, Kerala</p>
+          <p id="jBlurb" class="journal-blurb"></p>
+          <ul id="jList" class="journal-list"></ul>
+          <a id="exploreBtn" class="btn btn-primary explore-btn" href="#land-start">Explore Base Camp <span aria-hidden="true">→</span></a>
+          <div class="journal-nav">
+            <button id="prevBtn" class="btn btn-ghost small" type="button" aria-label="Previous stop">←</button>
+            <button id="nextBtn" class="btn btn-primary small" type="button">Next stop <span aria-hidden="true">→</span></button>
+          </div>
+        </aside>
+      </div>
+
+      <!-- quick-jump legend (also the accessible way around the map) -->
+      <nav class="legend" aria-label="Jump to a land on the map">
+        <ul id="legendList"></ul>
+      </nav>
+
+      <p class="map-footnote">Keep scrolling. There's one more track to ride <span aria-hidden="true">↓</span></p>
+    </section>
+
+    <!-- ============ HOW I FOUND WISPR FLOW (track map) ============ -->
+    <!-- ✏️ Edit the station text directly in this section. -->
+    <section id="wispr" class="wispr-section" aria-labelledby="wispr-title">
+      <div class="wispr-head">
+        <div class="ribbon ribbon-purple"><h2 id="wispr-title">The Wispr Line</h2></div>
+        <p class="wispr-sub">How a girl with a very fast brain found a way to keep up with it. All aboard!</p>
+      </div>
+
+      <div class="track-wrap" id="trackWrap">
+        <svg class="track-svg" id="trackSvg" aria-hidden="true">
+          <defs>
+            <mask id="railMask" maskUnits="userSpaceOnUse">
+              <path id="maskMainOuter" fill="none" stroke="#fff" stroke-width="24" stroke-linecap="round"/>
+              <path id="maskMainInner" fill="none" stroke="#000" stroke-width="15"/>
+              <path id="maskSpurOuter" fill="none" stroke="#fff" stroke-width="24" stroke-linecap="round"/>
+              <path id="maskSpurInner" fill="none" stroke="#000" stroke-width="15"/>
+            </mask>
+          </defs>
+          <path id="trackBed" class="track-bed"/>
+          <path id="spurBed" class="track-bed"/>
+          <path id="trackSleepers" class="track-sleepers"/>
+          <path id="spurSleepers" class="track-sleepers"/>
+          <path id="trackLit" class="track-lit"/>
+          <g mask="url(#railMask)">
+            <path id="trackRails" class="track-rails"/>
+            <path id="spurRails" class="track-rails"/>
+          </g>
+          <path id="trackLead" fill="none" stroke="none"/>
+        </svg>
+
+        <div class="train" id="train" aria-hidden="true">
+          <div class="train-smoke"><i></i><i></i><i></i></div>
+          <svg viewBox="0 0 120 110" class="train-body">
+            <rect x="20" y="58" width="80" height="30" rx="8" fill="#e5533d" stroke="#3b2416" stroke-width="4"/>
+            <rect x="14" y="52" width="92" height="12" rx="5" fill="#ffd23f" stroke="#3b2416" stroke-width="4"/>
+            <path d="M88 52 v-22 h12 v22" fill="#2b3a55" stroke="#3b2416" stroke-width="4" stroke-linejoin="round"/>
+            <rect x="84" y="24" width="20" height="8" rx="3" fill="#2b3a55" stroke="#3b2416" stroke-width="4"/>
+            <circle cx="38" cy="92" r="11" fill="#2b3a55" stroke="#3b2416" stroke-width="4"/>
+            <circle cx="82" cy="92" r="11" fill="#2b3a55" stroke="#3b2416" stroke-width="4"/>
+            <circle cx="38" cy="92" r="3.5" fill="#ffd23f"/><circle cx="82" cy="92" r="3.5" fill="#ffd23f"/>
+          </svg>
+          <img class="train-rider" src="assets/img/face-laugh.webp" alt="" />
+        </div>
+
+        <ol class="stations" id="stations">
+          <li class="station" data-side="left">
+            <div class="station-pin"><span>1</span></div>
+            <div class="station-card">
+              <p class="station-sign">Departure</p>
+              <h3>The Thought Tornado</h3>
+              <p>My brain runs really quickly. Ideas pile up faster than my fingers can type them, and when I say them out loud they come out full of <em>“um”</em>, <em>“like”</em> and <em>“so basically”</em>.</p>
+              <p>I wanted to note down <b>every single thing</b> I was thinking, but I had no idea how.</p>
+            </div>
+          </li>
+
+          <li class="station" data-side="right">
+            <div class="station-pin"><span>2</span></div>
+            <div class="station-card">
+              <p class="station-sign">Signal Tower</p>
+              <h3>Product Space's Agentic AI Hackathon</h3>
+              <p>At one point I had never even heard of Wispr Flow. Then I heard about the <b>Agentic AI Hackathon by Product Space</b> and signed up.</p>
+              <p>That's where Wispr Flow first came onto my track.</p>
+            </div>
+          </li>
+
+          <li class="station" data-side="left">
+            <div class="station-pin"><span>3</span></div>
+            <div class="station-card">
+              <p class="station-sign">First Words Junction</p>
+              <h3>“Wait… that's it?”</h3>
+              <p>I started using it while I was building, and it was <b>really easy</b>. I just talked, and clean text showed up wherever my cursor was.</p>
+              <p>No setup drama, no learning curve. I simply kept using it.</p>
+            </div>
+          </li>
+
+          <li class="station" data-side="right">
+            <div class="station-pin"><span>4</span></div>
+            <div class="station-card">
+              <p class="station-sign">Wispr Works Yard</p>
+              <h3>A hackathon built only on Wispr Flow</h3>
+              <!-- ✏️ Add the hackathon's name and what you built here. -->
+              <p>Then I joined another hackathon where <b>every project was a Wispr Flow project</b>.</p>
+              <p>This time Flow wasn't just a tool I used. It was the thing I was building on top of.</p>
+            </div>
+          </li>
+
+          <li class="station station-big" data-side="left">
+            <div class="station-pin"><span>5</span></div>
+            <div class="station-card">
+              <p class="station-sign">Main Line · Laptop HQ</p>
+              <h3>Where Flow really lives</h3>
+              <p>I use Wispr Flow <b>most on my laptop</b>. I have a lot of thoughts, and I need to be able to say them <b>coherently</b>. So I just talk — filler words and all — and Flow notes down everything I mean, cleaned up.</p>
+              <div class="meter"><span class="meter-label">💻 Laptop</span><span class="meter-bar"><i style="--w: 92%"></i></span><span class="meter-note">most of the time</span></div>
+
+              <div class="flow-demo" id="flowDemo">
+                <p class="flow-demo-label">The kind of ramble I said while planning this site:</p>
+                <p class="flow-raw" id="flowRaw"><span class="filler">So um, basically, </span>I want <span class="filler">like, </span>every island on the map to have its own page<span class="filler">, you know,</span> and <span class="filler">uh, wait, </span>also a section about how I <span class="filler">um, </span>found Wispr Flow<span class="filler">, like through the hackathon and stuff</span>.</p>
+                <p class="flow-clean" id="flowClean" hidden>I want every island on the map to have its own page, plus a section about how I found Wispr Flow through the hackathon.</p>
+                <button class="btn btn-primary small" id="flowBtn" type="button"><span aria-hidden="true">✨</span> Run it through Flow</button>
+              </div>
+            </div>
+          </li>
+
+          <li class="station station-spur" data-side="right" data-spur="true">
+            <div class="station-pin"><span>6</span></div>
+            <div class="station-card">
+              <p class="station-sign">Side Halt · Phone</p>
+              <h3>A quieter branch line</h3>
+              <p>I use it <b>a little on my phone</b> too, every now and then. My laptop is still where most of my thinking out loud happens.</p>
+              <div class="meter"><span class="meter-label">📱 Phone</span><span class="meter-bar"><i style="--w: 14%"></i></span><span class="meter-note">now and then</span></div>
+            </div>
+          </li>
+
+          <li class="station station-terminus" data-side="center">
+            <div class="station-pin terminus-pin"><span>★</span></div>
+            <div class="station-card terminus-card">
+              <p class="station-sign">Next Stop</p>
+              <h3>Wispr Flow · Growth</h3>
+              <!-- ✏️ Make these ideas your own. They're drafts. -->
+              <p>I'm the user Flow was made for: a fast brain, lots of filler words, and a laptop full of half-written ideas. I've lived the “wait, that's it?” moment myself.</p>
+              <p>I also spend my days with students and first-time founders — as CEO of Catalyst IEDC, mentoring students from 20+ Kerala schools through SALT, and on stage as an anchor. Those rooms are exactly where tools spread by word of mouth.</p>
+              <h4>Ideas I'd love to try</h4>
+              <ul class="idea-list">
+                <li><b>Campus “talk, don't type” demo days</b> through IEDC and startup-cell networks.</li>
+                <li><b>Hackathon tracks built on Flow</b>, like the one I joined, to turn users into builders.</li>
+                <li><b>Show the “works in every app” moment</b> in the very first minute.</li>
+                <li><b>Manglish rambles → clean English:</b> a fun way to show how people in Kerala really talk.</li>
+              </ul>
+              <div class="terminus-cta">
+                <a class="btn btn-primary" href="https://www.linkedin.com/in/ganga-b-nair-47941a235" target="_blank" rel="noopener">Say hi on LinkedIn</a>
+                <a class="btn btn-ghost" href="#map">Back to the map</a>
+              </div>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+   </div><!-- /#home -->
+
+   <!-- ============ ISLAND PAGE (one template, filled from js/lands.js) ============ -->
+   <div id="landView" class="land-view" hidden>
+     <section class="land-hero" aria-labelledby="lvTitle">
+       <div class="land-sky" aria-hidden="true">
+         <div class="cloud c1"></div><div class="cloud c3"></div>
+       </div>
+       <nav class="crumbs" aria-label="Breadcrumb">
+         <a href="#map"><span aria-hidden="true">←</span> Explorer's Map</a>
+         <span aria-hidden="true">›</span>
+         <span id="lvCrumb"></span>
+       </nav>
+       <div class="land-hero-inner">
+         <div class="land-copy">
+           <p class="land-kicker" id="lvKicker"></p>
+           <h1 class="land-title" id="lvTitle"></h1>
+           <p class="land-domain" id="lvDomain"></p>
+           <p class="land-tagline" id="lvTagline"></p>
+         </div>
+         <div class="land-scene">
+           <svg class="land-art" id="lvArt" aria-hidden="true"></svg>
+           <div class="land-explorer">
+             <div class="land-speech" id="lvSpeech" aria-hidden="true"></div>
+             <img id="lvExplorer" src="assets/img/explorer-front.webp" alt="Cartoon Ganga, ready to explore" width="278" height="503" />
+             <div class="land-acc" aria-hidden="true"><svg viewBox="0 0 64 64"><use id="lvAcc" href="#acc-compass"/></svg></div>
+           </div>
+         </div>
+       </div>
+       <svg class="land-ground" viewBox="0 0 1440 160" preserveAspectRatio="none" aria-hidden="true">
+         <path d="M0 70 C 260 10 520 40 760 70 C 1000 100 1220 30 1440 50 V160 H0Z" class="g1"/>
+         <path d="M0 110 C 300 70 560 90 820 108 C 1080 126 1260 90 1440 96 V160 H0Z" class="g2"/>
+       </svg>
+     </section>
+
+     <div class="land-body">
+       <article class="notebook" aria-labelledby="lvNotesH">
+         <h2 id="lvNotesH"><svg aria-hidden="true"><use href="#acc-notebook"/></svg> Field notes</h2>
+         <div id="lvStory" class="notebook-text"></div>
+       </article>
+
+       <section class="land-block" aria-labelledby="lvTreasureH">
+         <h2 id="lvTreasureH"><svg aria-hidden="true"><use href="#acc-chest"/></svg> Treasures found here</h2>
+         <div id="lvProjects" class="treasure-grid"></div>
+       </section>
+
+       <section class="land-block" aria-labelledby="lvGearH">
+         <h2 id="lvGearH"><svg aria-hidden="true"><use href="#acc-compass"/></svg> Gear in my backpack</h2>
+         <ul id="lvSkills" class="skill-chips"></ul>
+       </section>
+
+       <p class="fun-stamp" id="lvFun"></p>
+
+       <nav class="land-nav" aria-label="Travel between lands">
+         <a class="btn btn-ghost" id="lvPrev" href="#"><span aria-hidden="true">←</span> <span class="lbl"></span></a>
+         <a class="btn btn-primary" href="#map">Back to the map</a>
+         <a class="btn btn-ghost" id="lvNext" href="#"><span class="lbl"></span> <span aria-hidden="true">→</span></a>
+       </nav>
+     </div>
+   </div>
+
+  </main>
+
+  <!-- page-change bubble wipe -->
+  <div id="iris" class="iris" aria-hidden="true"><img src="assets/img/face-laugh.webp" alt="" /></div>
+
+  <footer class="footer">
+    <p>Drawn, coded &amp; explored by <b>Ganga B Nair</b> · 2026</p>
+    <p class="footer-links">
+      <a href="https://github.com/Ganga-B-Nair" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/ganga-b-nair-47941a235" target="_blank" rel="noopener">LinkedIn</a>
+    </p>
+  </footer>
+
+  <script src="js/lands.js"></script>
+  <script src="js/music.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/wispr.js"></script>
+</body>
+</html>
